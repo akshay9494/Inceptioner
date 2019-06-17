@@ -1,0 +1,21 @@
+docker network create nameko_net
+
+docker run -d --network nameko_net --hostname rabbitmqhost --name rabbitmq -p 4368:4369 -p 5670:5671 -p 5671:5672 -p 15671:15672 rabbitmq
+
+docker exec rabbitmq rabbitmq-plugins enable rabbitmq_management
+
+docker run -p 8001:8001 --network nameko_net nameko_service
+
+
+
+
+
+
+
+
+
+
+
+docker run -d --hostname my-rabbit --name some-rabbit -p 4368:4369 -p 5670:5671 -p 5671:5672 -p 15671:15672 rabbitmq
+
+docker exec some-rabbit rabbitmq-plugins enable rabbitmq_management

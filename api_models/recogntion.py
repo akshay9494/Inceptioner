@@ -1,5 +1,6 @@
 from flask_restplus import fields
-from flask_server.instance import server
+# from flask_server.instance import server
+from flask_server import server
 
 recognition_request = server.api.model('RecognitionRequest', {
     'id': fields.String(description='UID for maintaining traceability', required=True),

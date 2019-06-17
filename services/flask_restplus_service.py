@@ -1,5 +1,6 @@
 from flask_restplus import Resource, Namespace, reqparse
-from flask_server.instance import server
+# from flask_server.instance import server
+from flask_server import server
 from api_models.recogntion import recognition_request, recognition_response
 import logging
 import base64

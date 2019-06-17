@@ -11,8 +11,12 @@ COPY . /app
 
 WORKDIR /app
 
+RUN pip3 install gunicorn
+
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT ["python3"]
-
-CMD ["main.py"]
+#ENTRYPOINT ["python3"]
+#
+#CMD ["main.py"]
+#CMD ["gunicorn", "main:app", "-b", "0.0.0.0:8000", "--workers", "2"]
+CMD ["nameko", "run", "--config", "services/config.yaml", "main_nameko"]
